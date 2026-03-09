@@ -1,14 +1,13 @@
 'use client';
 
-import { scrollToSectionById } from './utils';
-import { SectionHeader } from "../ui/SectionHeader";
-import { problems, problemsContent } from "../../lib/content";
+import { scrollToSectionById } from '../utils';
+import { SectionHeader } from '../../ui/SectionHeader';
+import { problems, problemsContent } from '../../../lib/clinic-content';
 
 const ProblemsSection = () => {
   return (
     <section id="problemas" className="bg-surface-0 px-6 py-24 md:px-[8%] md:py-28">
       <div className="mx-auto max-w-7xl">
-        
         <SectionHeader {...problemsContent} />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -61,6 +60,3 @@ const ProblemsSection = () => {
 };
 
 export default ProblemsSection;
-
-
-

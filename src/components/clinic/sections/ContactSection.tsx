@@ -1,59 +1,60 @@
 'use client';
 
-import React, { useState } from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
+import { ChangeEvent, FormEvent, ReactNode, useState } from 'react';
+import { SectionHeader } from '../../ui/SectionHeader';
+import { contactInfoItems } from '../../../lib/clinic-content';
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    service: '', 
+    message: '' 
+  });
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
 
-  const contactInfo = [
-    {
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"/>
-          <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-        </svg>
-      ),
-      label: 'Dirección',
-      value: 'Av. Salud 245, Ciudad, Colombia',
-      color: 'text-primary-600',
-      bgColor: 'bg-primary-50',
-    },
-    {
-      icon: (
-        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M12 7v5l3 3"/>
-        </svg>
-      ),
-      label: 'Horario',
-      value: 'Lun-Vie: 8am-7pm | Sáb: 9am-2pm',
-      color: 'text-primary-600',
-      bgColor: 'bg-primary-50',
-    },
-  ];
+  const contactIcons: Record<string, ReactNode> = {
+    address: (
+      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z" />
+        <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      </svg>
+    ),
+    hours: (
+      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 3" />
+      </svg>
+    ),
+  };
 
   return (
     <section id="contact" className="bg-surface-0 px-6 py-24 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Agenda tu cita</h2>
-          <p className={sectionSubtitleClass}>
-            Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Agenda tu cita"
+          description="Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas"
+        />
 
         {/* Main Grid */}
         <div className="grid gap-12 lg:grid-cols-2">
@@ -146,7 +147,7 @@ const ContactSection = () => {
                     id="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows="4"
+                    rows={4}
                     className="w-full border-2 border-secondary-200 bg-muted-50 px-4 py-3 text-secondary-900 transition-all focus:border-primary-600 focus:bg-surface-0 focus:outline-none"
                     placeholder="Cuéntanos brevemente sobre tu situación..."
                   />
@@ -195,12 +196,12 @@ const ContactSection = () => {
 
             {/* Contact Cards */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {contactInfo.map((info, index) => (
+              {contactInfoItems.map((info) => (
                 <div
-                  key={index}
+                  key={info.id}
                   className={`group ${info.bgColor} p-6 transition-all duration-300 hover:shadow-lg`}
                 >
-                  <div className={`mb-3 ${info.color}`}>{info.icon}</div>
+                  <div className={`mb-3 ${info.color}`}>{contactIcons[info.id]}</div>
                   <p className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary-700">
                     {info.label}
                   </p>
@@ -219,7 +220,6 @@ const ContactSection = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-
           </div>
         </div>
       </div>
@@ -228,7 +228,3 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
-
-
-
-

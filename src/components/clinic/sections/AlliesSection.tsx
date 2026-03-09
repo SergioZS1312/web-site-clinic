@@ -1,39 +1,23 @@
 'use client';
 
-import React from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
-
-const companyAllies = [
-  { name: 'RunCity Marathon', category: 'Evento' },
-  { name: 'TechMove Corp', category: 'Empresa' },
-  { name: 'Energy Brands', category: 'Marca' },
-  { name: 'Wellness Group', category: 'Empresa' },
-  { name: 'FitArena Games', category: 'Evento' },
-  { name: 'ProFit Center', category: 'Centro deportivo' },
-];
-
-const athleteAllies = [
-  { name: 'Atleta 01', discipline: 'Running', image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80' },
-  { name: 'Atleta 02', discipline: 'CrossFit', image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80' },
-  { name: 'Atleta 03', discipline: 'Futbol', image: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80' },
-  { name: 'Atleta 04', discipline: 'Ciclismo', image: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=800&q=80' },
-  { name: 'Atleta 05', discipline: 'Natación', image: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=800&q=80' },
-  { name: 'Atleta 06', discipline: 'Triatlón', image: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=800&q=80' },
-];
-
-const eventServices = ['Maratones', 'Eventos deportivos', 'Equipos deportivos', 'Activaciones de marca'];
-const corporateServices = ['Pausas activas', 'Jornadas de bienestar', 'Descargas musculares'];
+import { SectionHeader } from '../../ui/SectionHeader';
+import CheckListItem from '../shared/CheckListItem';
+import {
+  alliesAthletes,
+  alliesCompany,
+  corporateServices,
+  eventServices,
+} from '../../../lib/clinic-content';
 
 const AlliesSection = () => {
   return (
     <section id="aliados" className="bg-surface-0 px-6 py-24 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Aliados y eventos</h2>
-          <p className={sectionSubtitleClass}>
-            Trabajamos con empresas y atletas brindando cobertura fisioterapeutica profesional
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Aliados y eventos"
+          description="Trabajamos con empresas y atletas brindando cobertura fisioterapeutica profesional"
+        />
 
         {/* Mosaico de atletas */}
         <div className="mt-16">
@@ -41,7 +25,7 @@ const AlliesSection = () => {
             Atletas y embajadores
           </h3>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {athleteAllies.map((athlete) => (
+            {alliesAthletes.map((athlete) => (
               <article
                 key={athlete.name}
                 className="group relative overflow-hidden border-2 border-secondary-200 bg-surface-0 transition-all duration-300 hover:border-primary-600 hover:shadow-2xl"
@@ -69,7 +53,7 @@ const AlliesSection = () => {
           </h3>
           <div className="relative">
             <div className="flex gap-3 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:gap-4 lg:grid-cols-6 lg:gap-5">
-              {companyAllies.map((ally) => (
+              {alliesCompany.map((ally) => (
                 <article
                   key={ally.name}
                   className="min-w-35 shrink-0 border border-secondary-200 bg-surface-0 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary-600 hover:shadow-lg md:min-w-0"
@@ -97,12 +81,7 @@ const AlliesSection = () => {
             </p>
             <div className="space-y-4">
               {eventServices.map((item) => (
-                <div key={item} className="flex items-center gap-4 border-l-4 border-primary-600 bg-primary-50 p-4 transition-all duration-300 hover:bg-primary-100">
-                  <svg className="h-6 w-6 shrink-0 text-primary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                  <span className="font-semibold text-secondary-800">{item}</span>
-                </div>
+                <CheckListItem key={item} text={item} />
               ))}
             </div>
           </div>
@@ -164,12 +143,7 @@ const AlliesSection = () => {
             </p>
             <div className="space-y-4">
               {corporateServices.map((item) => (
-                <div key={item} className="flex items-center gap-4 border-l-4 border-primary-600 bg-primary-50 p-4 transition-all duration-300 hover:bg-primary-100">
-                  <svg className="h-6 w-6 shrink-0 text-primary-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                  <span className="font-semibold text-secondary-800">{item}</span>
-                </div>
+                <CheckListItem key={item} text={item} />
               ))}
             </div>
           </div>
@@ -193,6 +167,3 @@ const AlliesSection = () => {
 };
 
 export default AlliesSection;
-
-
-

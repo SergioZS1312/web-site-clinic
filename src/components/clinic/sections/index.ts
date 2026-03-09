@@ -1,0 +1,15 @@
+export { default as AboutSection } from './AboutSection';
+export { default as AlliesSection } from './AlliesSection';
+export { default as BenefitsSection } from './BenefitsSection';
+export { default as ContactSection } from './ContactSection';
+export { default as FaqSection } from './FaqSection';
+export { default as HeroSection } from './HeroSection';
+export { default as LocationSection } from './LocationSection';
+export { default as PrimaryCtaSection } from './PrimaryCtaSection';
+export { default as ProblemsSection } from './ProblemsSection';
+export { default as ProcessSection } from './ProcessSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as TeamSection } from './TeamSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as TestimonialVideos } from './TestimonialVideos';
+export { default as YouTubeVideos } from './YouTubeVideos';

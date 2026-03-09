@@ -1,17 +1,12 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { sectionTitleClass } from './constants';
-import { scrollToSectionById } from './utils';
-
-const heroImages = [
-  "https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?auto=format&fit=crop&w=2070&q=80",
-  "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=2070&q=80",
-  "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=2070&q=80",
-];
+import { useEffect, useState } from 'react';
+import { sectionTitleClass } from '../constants';
+import { scrollToSectionById } from '../utils';
+import { heroImages } from '../../../lib/clinic-content';
 
 const HeroSection = () => {
-  const [activeImage, setActiveImage] = useState(0);
+  const [activeImage, setActiveImage] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -100,7 +95,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
-

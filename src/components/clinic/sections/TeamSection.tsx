@@ -1,53 +1,17 @@
 'use client';
 
-import React from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
-
-const teamMembers = [
-  {
-    name: 'Dra. Laura Martinez',
-    role: 'Fisioterapeuta deportiva',
-    specialty: 'Rehabilitacion de lesiones de alto rendimiento',
-    experience: '12 anos de experiencia',
-    image:
-      'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    name: 'Lic. Andres Rojas',
-    role: 'Especialista en terapia manual',
-    specialty: 'Dolor lumbar, cervical y movilidad funcional',
-    experience: '10 anos de experiencia',
-    image:
-      'https://images.unsplash.com/photo-1614436163996-25cee5f54290?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    name: 'Dra. Valentina Perez',
-    role: 'Fisioterapeuta clinica',
-    specialty: 'Rehabilitacion postoperatoria y neurologica',
-    experience: '8 anos de experiencia',
-    image:
-      'https://images.unsplash.com/photo-1594824804732-ca8db26f2ccf?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    name: 'Lic. Mateo Silva',
-    role: 'Readaptador fisico',
-    specialty: 'Retorno al deporte y prevencion de recaidas',
-    experience: '9 anos de experiencia',
-    image:
-      'https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=800&q=80',
-  },
-];
+import { SectionHeader } from '../../ui/SectionHeader';
+import { teamMembers } from '../../../lib/clinic-content';
 
 const TeamSection = () => {
   return (
     <section id="equipo" className="bg-muted-50 px-6 py-20 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Nuestro equipo</h2>
-          <p className={sectionSubtitleClass}>
-            Profesionales especializados que te acompanan en cada etapa de tu recuperacion
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Nuestro equipo"
+          description="Profesionales especializados que te acompanan en cada etapa de tu recuperacion"
+        />
 
         <div className="mb-4 flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-secondary-500">Desliza para ver mas perfiles</p>

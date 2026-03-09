@@ -1,28 +1,21 @@
 'use client';
 
-import React from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
-
-const videos = [
-  'dQw4w9WgXcQ', // Reemplaza con tus IDs reales de YouTube
-  'dQw4w9WgXcQ', // Reemplaza con tus IDs reales de YouTube
-  'dQw4w9WgXcQ', // Reemplaza con tus IDs reales de YouTube
-];
+import { SectionHeader } from '../../ui/SectionHeader';
+import { youtubeVideoIds } from '../../../lib/clinic-content';
 
 const YouTubeVideos = () => {
   return (
     <section id="youtube-videos" className="bg-muted-50 px-6 py-20 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Resultados reales</h2>
-          <p className={sectionSubtitleClass}>
-            Mira los procesos de recuperación de nuestros pacientes.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Resultados reales"
+          description="Mira los procesos de recuperación de nuestros pacientes."
+        />
 
         {/* Videos Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {videos.map((videoId, index) => (
+          {youtubeVideoIds.map((videoId, index) => (
             <div key={index} className="overflow-hidden rounded-xl shadow-lg">
               <div className="relative aspect-video w-full">
                 <iframe

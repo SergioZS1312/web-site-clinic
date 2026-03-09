@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { scrollToSectionById } from './utils';
+import { scrollToSectionById } from '../utils';
 
 const PrimaryCtaSection = () => {
   return (
@@ -137,6 +136,3 @@ const PrimaryCtaSection = () => {
 };
 
 export default PrimaryCtaSection;
-
-
-

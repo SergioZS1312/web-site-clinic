@@ -1,56 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
-
-const faqs = [
-  {
-    question: '¿Cuanto dura una sesion de fisioterapia?',
-    answer:
-      'La sesion suele durar entre 45 y 60 minutos, segun tu evaluacion y el plan de tratamiento definido por el especialista.',
-  },
-  {
-    question: '¿Necesito orden medica para agendar cita?',
-    answer:
-      'No siempre. Puedes agendar una valoracion inicial directamente y, si se requiere, te indicamos los soportes medicos recomendados.',
-  },
-  {
-    question: '¿Atienden rehabilitacion postoperatoria?',
-    answer:
-      'Si. Trabajamos protocolos de recuperacion postoperatoria con seguimiento continuo para mejorar movilidad, fuerza y funcionalidad.',
-  },
-  {
-    question: '¿Ofrecen atencion a domicilio?',
-    answer:
-      'Si, contamos con modalidad a domicilio en zonas seleccionadas. Escríbenos por WhatsApp para confirmar cobertura y horarios.',
-  },
-  {
-    question: '¿Cuantas sesiones voy a necesitar?',
-    answer:
-      'Depende de tu diagnostico y objetivos. En la primera evaluacion estimamos un plan de sesiones con metas por etapas.',
-  },
-  {
-    question: '¿Puedo pagar por paquete de sesiones?',
-    answer:
-      'Si, tenemos planes por sesiones individuales y paquetes con beneficios. Te compartimos opciones segun tu caso.',
-  },
-];
+import { useState } from 'react';
+import { SectionHeader } from '../../ui/SectionHeader';
+import { faqItems } from '../../../lib/clinic-content';
 
 const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
     <section id="faq" className="bg-muted-50 px-6 py-20 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Preguntas frecuentes</h2>
-          <p className={sectionSubtitleClass}>
-            Respuestas rapidas para ayudarte a iniciar tu proceso con claridad
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Preguntas frecuentes"
+          description="Respuestas rapidas para ayudarte a iniciar tu proceso con claridad"
+        />
 
         <div className="mx-auto max-w-4xl space-y-4">
-          {faqs.map((item, index) => {
+          {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
 
             return (

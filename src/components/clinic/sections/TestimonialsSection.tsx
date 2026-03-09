@@ -1,67 +1,21 @@
 'use client';
 
-import React from 'react';
-import { sectionHeaderClass, sectionSubtitleClass, sectionTitleClass } from './constants';
-
-const reviews = [
-  {
-    name: 'Carla Mendoza',
-    context: 'Rehabilitación de rodilla',
-    text: 'Excelente atención desde la primera sesión. Me explicaron todo el proceso y pude volver a caminar sin dolor.',
-    rating: 5,
-    date: 'Hace 2 semanas',
-  },
-  {
-    name: 'Luis Ramírez',
-    context: 'Lesión deportiva',
-    text: 'Llegué con tendinitis y hoy entreno nuevamente. El plan fue claro, progresivo y adaptado a mis tiempos.',
-    rating: 5,
-    date: 'Hace 1 mes',
-  },
-  {
-    name: 'Paula Díaz',
-    context: 'Dolor cervical',
-    text: 'Noté mejoría desde la segunda cita. Muy profesionales, puntuales y con seguimiento constante.',
-    rating: 5,
-    date: 'Hace 3 semanas',
-  },
-  {
-    name: 'Jorge Pineda',
-    context: 'Post cirugía de hombro',
-    text: 'Me ayudaron a recuperar movilidad y fuerza sin forzar el proceso. Recomiendo totalmente su enfoque.',
-    rating: 5,
-    date: 'Hace 1 semana',
-  },
-  {
-    name: 'Mariana Suárez',
-    context: 'Pausas activas empresariales',
-    text: 'Implementamos el programa en la empresa y el equipo está mucho mejor. Excelente ejecución.',
-    rating: 5,
-    date: 'Hace 2 meses',
-  },
-  {
-    name: 'David Ortega',
-    context: 'Lumbalgia',
-    text: 'Después de varias terapias sin resultado, aquí sí vi cambios reales. Muy profesional.',
-    rating: 5,
-    date: 'Hace 5 días',
-  },
-];
+import { SectionHeader } from '../../ui/SectionHeader';
+import { testimonialReviews } from '../../../lib/clinic-content';
 
 const TestimonialsSection = () => {
   return (
     <section id="testimonios" className="bg-muted-50 px-6 py-20 md:px-[8%] md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className={sectionHeaderClass}>
-          <h2 className={`${sectionTitleClass} text-primary-700`}>Lo que dicen nuestros pacientes</h2>
-          <p className={sectionSubtitleClass}>
-            Testimonios reales de personas que confiaron en nuestro equipo para su recuperación.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow=""
+          title="Lo que dicen nuestros pacientes"
+          description="Testimonios reales de personas que confiaron en nuestro equipo para su recuperación."
+        />
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((item, index) => (
+          {testimonialReviews.map((item, index) => (
             <article
               key={index}
               className="rounded-lg border-l-4 border-primary-600 bg-surface-0 p-6 shadow-md transition-all duration-300 hover:shadow-xl"
@@ -101,6 +55,3 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
-
-
-

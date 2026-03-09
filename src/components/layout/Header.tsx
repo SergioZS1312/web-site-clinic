@@ -2,21 +2,16 @@
 
 import { useState } from 'react';
 import { scrollToSectionById } from '../clinic/utils';
+import { headerNavigationItems } from '../../lib/clinic-content';
 
-const Header = ({ scrolled }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+interface HeaderProps {
+  scrolled: boolean;
+}
 
-  const navigationItems = [
-    ['problemas', 'Problemas'],
-    ['services', 'Servicios'],
-    ['beneficios', 'Beneficios'],
-    ['aliados', 'Aliados'],
-    ['proceso', 'Proceso'],
-    ['faq', 'FAQ'],
-    ['contact', 'Contacto'],
-  ];
+const Header = ({ scrolled }: HeaderProps) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-  const handleNavClick = (id) => {
+  const handleNavClick = (id: string) => {
     scrollToSectionById(id);
     setMobileMenuOpen(false);
   };
@@ -24,9 +19,7 @@ const Header = ({ scrolled }) => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-surface-0/95 px-6 py-4 backdrop-blur-lg md:px-12'
-          : 'px-6 py-6 md:px-12'
+        scrolled ? 'bg-surface-0/95 px-6 py-4 backdrop-blur-lg md:px-12' : 'px-6 py-6 md:px-12'
       }`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
@@ -40,10 +33,9 @@ const Header = ({ scrolled }) => {
           <span className={`ml-1 inline-block h-2 w-2 ${scrolled ? 'bg-primary-700' : 'bg-primary-900'}`} />
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:block">
           <ul className="flex gap-6 xl:gap-10">
-            {navigationItems.map(([id, label]) => (
+            {headerNavigationItems.map(([id, label]) => (
               <li key={id}>
                 <a
                   href={`#${id}`}
@@ -62,11 +54,11 @@ const Header = ({ scrolled }) => {
           </ul>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
           className={`lg:hidden ${scrolled ? 'text-primary-700' : 'text-primary-900'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          type="button"
         >
           {mobileMenuOpen ? (
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -80,7 +72,6 @@ const Header = ({ scrolled }) => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ${
           mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
@@ -88,7 +79,7 @@ const Header = ({ scrolled }) => {
       >
         <nav className="border-t border-secondary-200 bg-surface-0 pb-6 pt-4">
           <ul className="space-y-1">
-            {navigationItems.map(([id, label]) => (
+            {headerNavigationItems.map(([id, label]) => (
               <li key={id}>
                 <a
                   href={`#${id}`}

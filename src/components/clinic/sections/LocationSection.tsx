@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { sectionTitleClass } from './constants';
+import { sectionTitleClass } from '../constants';
 
 const LocationSection = () => {
   return (
@@ -40,7 +39,3 @@ const LocationSection = () => {
 };
 
 export default LocationSection;
-
-
-
-
