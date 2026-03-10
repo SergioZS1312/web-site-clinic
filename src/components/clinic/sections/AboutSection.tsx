@@ -1,28 +1,16 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { GraduationCap, Heart, Zap } from 'lucide-react';
 import { SectionHeader } from '../../ui/SectionHeader';
 import CounterAnimation from '../shared/CounterAnimation';
 import StatCard from '../shared/StatCard';
 import { aboutStats, aboutValues } from '../../../lib/clinic-content';
 
 const valueIcons: Record<string, ReactNode> = {
-  professionalism: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-      <path d="M22 10L12 5 2 10l10 5 10-5Z" />
-      <path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5" />
-    </svg>
-  ),
-  experience: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-      <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8Z" />
-    </svg>
-  ),
-  commitment: (
-    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-      <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z" />
-    </svg>
-  ),
+  professionalism: <GraduationCap className="h-6 w-6" strokeWidth={2.2} />,
+  experience: <Zap className="h-6 w-6" strokeWidth={2.2} />,
+  commitment: <Heart className="h-6 w-6" strokeWidth={2.2} />,
 };
 
 const AboutSection = () => {

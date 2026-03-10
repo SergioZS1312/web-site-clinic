@@ -1,46 +1,18 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { Activity, Dumbbell, Hand, Heart, ShieldCheck, Zap } from 'lucide-react';
 import { SectionHeader } from '../../ui/SectionHeader';
 import StatCard from '../shared/StatCard';
 import { serviceImages, serviceStats, servicesList } from '../../../lib/clinic-content';
 
 const serviceIcons: Record<string, ReactNode> = {
-  'sports-physio': (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-    </svg>
-  ),
-  'manual-therapy': (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M12 2c-4 0-8 4-8 9v9h16v-9c0-5-4-9-8-9z"></path>
-      <path d="M9 13l3 3 3-3"></path>
-    </svg>
-  ),
-  'physical-rehab': (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3a4 4 0 0 0 4-4V6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2a7 7 0 0 0 7 7h-9"></path>
-    </svg>
-  ),
-  electrotherapy: (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <rect x="11" y="2" width="2" height="20" rx="1"></rect>
-      <path d="M8 6h8 M8 10h8 M8 14h8 M8 18h8"></path>
-    </svg>
-  ),
-  'massage-therapy': (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M4 12h16M12 4v16" />
-      <path d="M7 7l10 10" />
-    </svg>
-  ),
-  'post-op-rehab': (
-    <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M3 12h18" />
-      <path d="M6 8h12M8 16h8" />
-      <path d="M12 3v18" />
-    </svg>
-  ),
+  'sports-physio': <Dumbbell className="h-10 w-10" strokeWidth={1.8} />,
+  'manual-therapy': <Hand className="h-10 w-10" strokeWidth={1.8} />,
+  'physical-rehab': <Activity className="h-10 w-10" strokeWidth={1.8} />,
+  electrotherapy: <Zap className="h-10 w-10" strokeWidth={1.8} />,
+  'massage-therapy': <Heart className="h-10 w-10" strokeWidth={1.8} />,
+  'post-op-rehab': <ShieldCheck className="h-10 w-10" strokeWidth={1.8} />,
 };
 
 const ServicesSection = () => {

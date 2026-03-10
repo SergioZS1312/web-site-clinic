@@ -1,6 +1,7 @@
 'use client';
 
 import { SectionHeader } from '../../ui/SectionHeader';
+import { Star } from 'lucide-react';
 import { testimonialReviews } from '../../../lib/clinic-content';
 
 const TestimonialsSection = () => {
@@ -22,9 +23,7 @@ const TestimonialsSection = () => {
             >
               <div className="mb-4 flex items-center gap-1 text-yellow-500">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <svg key={star} className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 17.3L18.2 21l-1.6-7.1L22 9.2l-7.2-.6L12 2 9.2 8.6 2 9.2l5.4 4.7L5.8 21z" />
-                  </svg>
+                  <Star key={star} className="h-4 w-4 fill-current" />
                 ))}
               </div>
 
